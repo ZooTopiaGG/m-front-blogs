@@ -22,5 +22,20 @@ export default {
   },
   'NO_LOGIN': ({ commit }, para) => {
     commit('NO_LOGIN', para)
+  },
+  'MUISC_PLAYED': ({ commit }) => {
+    commit('MUISC_PLAYED')
+  },
+  'MUISC_NO_PLAY': ({ commit }) => {
+    commit('MUISC_NO_PLAY')
+  },
+  'SEND_STAT': ({ commit }, para) => {
+    commit('SEND_STAT', para)
+  },
+  'ALL_ALBUM': ({ commit }) => {
+    commit('ALL_ALBUM')
+  },
+  'A_ALBUM': ({ commit }) => {
+    commit('A_ALBUM')
   }
 }

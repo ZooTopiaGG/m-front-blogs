@@ -3,13 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="keywords" content="javascript,node,mysql,linux,编程,开发,网络,互联网">
-    <meta name="description" content="致力于打造个人精美网站">
+    <meta name="keywords" content="javascript,node,mysql,vue,es6,html5,css3,react,linux,编程,优秀博客,开发,网络,互联网,法律知识,离婚,结婚">
+    <meta name="description" content="致力于打造个人精美博客，包含丰富多彩的内容">
     <meta name="author" content="1109142362@qq.com">
-    <meta name="copyright" content="邓鹏的个人网站">
+    <meta name="copyright" content="邓鹏的博客">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>邓鹏的个人网站</title>
+    <title>首页_邓鹏博客</title>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?59ed8ae870f0fc3202f02c7207aa0685";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+      _hmt.push(['_trackPageview', 'http://www.55lover.com']);
+    </script>
     <script type="text/javascript">
        function detectmob() {
             if (navigator.userAgent.match(/Android/i) ||
@@ -25,471 +35,10 @@
             } else {
                 // pc端
                 // 正式网
-                window.location.href = 'http://www.55lover.com'
+                // window.location.href = 'http://www.55lover.com'
             }
         }
         detectmob();
-    </script>
-    <link rel="shortcut icon" href="/static/favicon.ico" />
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="http://libs.cdnjs.net/slippry/1.4.0/slippry.min.css"> -->
-    <script type="text/javascript" src="http://libs.cdnjs.net/slippry/1.4.0/slippry.min.js"></script>
-    <script type="text/javascript" src="http://libs.cdnjs.net/scrollReveal.js/3.3.6/scrollreveal.min.js"></script>
-    <style type="text/css">
-        /**
-         *
-         * slippry v1.4.0 - Responsive content slider for jQuery
-         * http://slippry.com
-         *
-         * Authors: Lukas Jakob Hafner - @saftsaak
-         *          Thomas Hurd - @SeenNotHurd
-         *
-         * Copyright 2016, booncon oy - http://booncon.com
-         *
-         *
-         * Released under the MIT license - http://opensource.org/licenses/MIT
-         */
-        /* kenBurns animations, very basic */
-        @-webkit-keyframes left-right {
-          0% {
-            -webkit-transform: translateY(-20%) translateX(-10%);
-                    transform: translateY(-20%) translateX(-10%); }
-          100% {
-            -webkit-transform: translateY(0%) translateX(10%);
-                    transform: translateY(0%) translateX(10%); } }
-        @-o-keyframes left-right {
-          0% {
-            -o-transform: translateY(-20%) translateX(-10%);
-               transform: translateY(-20%) translateX(-10%); }
-          100% {
-            -o-transform: translateY(0%) translateX(10%);
-               transform: translateY(0%) translateX(10%); } }
-        @keyframes left-right {
-          0% {
-            -webkit-transform: translateY(-20%) translateX(-10%);
-                 -o-transform: translateY(-20%) translateX(-10%);
-                    transform: translateY(-20%) translateX(-10%); }
-          100% {
-            -webkit-transform: translateY(0%) translateX(10%);
-                 -o-transform: translateY(0%) translateX(10%);
-                    transform: translateY(0%) translateX(10%); } }
-        @-webkit-keyframes right-left {
-          0% {
-            -webkit-transform: translateY(0%) translateX(10%);
-                    transform: translateY(0%) translateX(10%); }
-          100% {
-            -webkit-transform: translateY(-20%) translateX(-10%);
-                    transform: translateY(-20%) translateX(-10%); } }
-        @-o-keyframes right-left {
-          0% {
-            -o-transform: translateY(0%) translateX(10%);
-               transform: translateY(0%) translateX(10%); }
-          100% {
-            -o-transform: translateY(-20%) translateX(-10%);
-               transform: translateY(-20%) translateX(-10%); } }
-        @keyframes right-left {
-          0% {
-            -webkit-transform: translateY(0%) translateX(10%);
-                 -o-transform: translateY(0%) translateX(10%);
-                    transform: translateY(0%) translateX(10%); }
-          100% {
-            -webkit-transform: translateY(-20%) translateX(-10%);
-                 -o-transform: translateY(-20%) translateX(-10%);
-                    transform: translateY(-20%) translateX(-10%); } }
-        /* added to the original element calling slippry */
-        /*.sy-box.sy-loading {
-          background: url("/images/sy-loader.gif") 50% 50% no-repeat;
-          -webkit-background-size: 32px 32px;
-                  background-size: 32px;
-          min-height: 40px; }*/
-          .sy-box.sy-loading .sy-slides-wrap, .sy-box.sy-loading .sy-pager {
-            visibility: hidden; }
-
-        /* element that wraps the slides */
-        .sy-slides-wrap {
-          position: relative;
-          height: 100%;
-          width: 100%; }
-          .sy-slides-wrap:hover .sy-controls {
-            display: block; }
-
-        /* element that crops the visible area to the slides */
-        .sy-slides-crop {
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          overflow: hidden; }
-
-        /* list containing the slides */
-        .sy-list {
-          width: 100%;
-          height: 100%;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          position: absolute; }
-          .sy-list.horizontal {
-            -webkit-transition: left ease;
-                 -o-transition: left ease;
-                    transition: left ease; }
-          .sy-list.vertical {
-            -webkit-transition: top ease;
-                 -o-transition: top ease;
-                    transition: top ease; }
-
-        /* single slide */
-        .sy-slide {
-          position: absolute;
-          width: 100%;
-          z-index: 2; }
-          .sy-slide.kenburns {
-            width: 140%;
-            left: -20%; }
-            .sy-slide.kenburns.useCSS {
-              -webkit-transition-property: opacity;
-                   -o-transition-property: opacity;
-                      transition-property: opacity; }
-              .sy-slide.kenburns.useCSS.sy-ken:nth-child(1n) {
-                -webkit-animation-name: left-right;
-                     -o-animation-name: left-right;
-                        animation-name: left-right;
-                -webkit-animation-fill-mode: forwards;
-                     -o-animation-fill-mode: forwards;
-                        animation-fill-mode: forwards; }
-              .sy-slide.kenburns.useCSS.sy-ken:nth-child(2n) {
-                -webkit-animation-name: right-left;
-                     -o-animation-name: right-left;
-                        animation-name: right-left;
-                -webkit-animation-fill-mode: forwards;
-                     -o-animation-fill-mode: forwards;
-                        animation-fill-mode: forwards; }
-          .sy-slide.sy-active {
-            z-index: 3; }
-          .sy-slide > img {
-            margin: 0;
-            padding: 0;
-            display: block;
-            width: 100%;
-            border: 0; }
-          .sy-slide > a {
-            margin: 0;
-            padding: 0;
-            display: block;
-            width: 100%; }
-            .sy-slide > a > img {
-              margin: 0;
-              padding: 0;
-              display: block;
-              width: 100%;
-              border: 0; }
-
-        /* next/ prev buttons, with arrows and clickable area a lot larger than the visible buttons */
-        .sy-controls {
-          display: none;
-          list-style: none;
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          padding: 0;
-          margin: 0; }
-          .sy-controls li {
-            position: absolute;
-            width: 10%;
-            min-width: 4.2em;
-            height: 100%;
-            z-index: 33; }
-            .sy-controls li.sy-prev {
-              left: 0;
-              top: 0; }
-              .sy-controls li.sy-prev a:after {
-                background-position: -5% 0; }
-            .sy-controls li.sy-next {
-              right: 0;
-              top: 0; }
-              .sy-controls li.sy-next a:after {
-                background-position: 105% 0; }
-            .sy-controls li a {
-              position: relative;
-              width: 100%;
-              height: 100%;
-              display: block;
-              text-indent: -9999px; }
-              .sy-controls li a:link, .sy-controls li a:visited {
-                opacity: 0.4; }
-              .sy-controls li a:hover, .sy-controls li a:focus {
-                opacity: 0.8;
-                outline: none; }
-              .sy-controls li a:after {
-                content: "";
-                background-image: url("/images/arrows.svg");
-                background-repeat: no-repeat;
-                -webkit-background-size: cover;
-                        background-size: cover;
-                text-align: center;
-                text-indent: 0;
-                line-height: 2.8em;
-                color: #111;
-                font-weight: 800;
-                position: absolute;
-                background-color: #fff;
-                width: 2.8em;
-                height: 2.8em;
-                left: 50%;
-                top: 50%;
-                margin-top: -1.4em;
-                margin-left: -1.4em;
-                border-radius: 50%; }
-          @media only screen and (max-device-width: 600px) {
-            .sy-controls {
-              display: block; }
-              .sy-controls li {
-                min-width: 2.1em; }
-                .sy-controls li a:after {
-                  width: 1.4em;
-                  height: 1.4em;
-                  margin-top: -0.7em;
-                  margin-left: -0.7em; } }
-
-        /* captions, styled fo the overlay variant */
-        .sy-caption-wrap {
-          position: absolute;
-          bottom: 2em;
-          z-index: 12;
-          left: 50%; }
-          .sy-caption-wrap .sy-caption {
-            position: relative;
-            left: -50%;
-            background-color: rgba(0, 0, 0, 0.54);
-            color: #fff;
-            padding: 0.4em 1em;
-            border-radius: 1.2em; }
-            .sy-caption-wrap .sy-caption a:link, .sy-caption-wrap .sy-caption a:visited {
-              color: #e24b70;
-              font-weight: 600;
-              text-decoration: none; }
-            .sy-caption-wrap .sy-caption a:hover, .sy-caption-wrap .sy-caption a:focus {
-              text-decoration: underline; }
-          @media only screen and (max-device-width: 600px), screen and (max-width: 600px) {
-            .sy-caption-wrap {
-              left: 0;
-              bottom: 0.4em; }
-              .sy-caption-wrap .sy-caption {
-                left: 0;
-                padding: 0.2em 0.4em;
-                font-size: 0.92em;
-                border-radius: 0; } }
-
-        /* pager bubbles */
-        .sy-pager {
-          clear: both;
-          display: block;
-          width: 100%;
-          margin: 1em 0 0;
-          padding: 0;
-          list-style: none;
-          text-align: center; }
-          .sy-pager li {
-            display: inline-block;
-            width: 1.2em;
-            height: 1.2em;
-            margin: 0 1em 0 0;
-            border-radius: 50%; }
-            .sy-pager li.sy-active a {
-              background-color: #e24b70; }
-            .sy-pager li a {
-              width: 100%;
-              height: 100%;
-              display: block;
-              background-color: #ccc;
-              text-indent: -9999px;
-              -webkit-background-size: 2em 2em;
-                      background-size: 2em;
-              border-radius: 50%; }
-              .sy-pager li a:link, .sy-pager li a:visited {
-                opacity: 1.0; }
-              .sy-pager li a:hover, .sy-pager li a:focus {
-                opacity: 0.6; }
-
-        /* element to "keep/ fill" the space of the content, gets intrinsic height via js */
-        .sy-filler {
-          width: 100%; }
-          .sy-filler.ready {
-            -webkit-transition: padding 600ms ease;
-                 -o-transition: padding 600ms ease;
-                    transition: padding 600ms ease; }
-    </style>
-    <style type="text/css">
-        .cbg{
-            position: fixed;
-            bottom: 0;
-            top: 0;
-            right: 0;
-            left: 0;
-            background: #18aacf;
-            z-index: 9999;
-        }
-        .box3d-wrap { width: 4.0rem; height: 3.0rem; box-sizing:border-box;  cursor: move;  perspective: 300;}
-        .box3d-inner{ position: relative; width: 50px; height: 50px;
-            transform-style: preserve-3d;
-            animation: rotate-frame 15s ease-out infinite;
-        }
-        .box3d { width: 50px;height: 50px; position: absolute; box-sizing:border-box; color:#fff; line-height: 100px; text-align: center;}
-
-        .box-front { transform:translateZ(50px); background: RGBA(213, 98, 163, .6);}
-        .box-left { transform: rotateY(-90deg); transform-origin: left; background:RGBA(213, 98, 117, .6);}
-        .box-right { transform: rotateY(90deg); transform-origin: right; background: RGBA(213, 98, 192, .6);}
-        .box-top {transform: rotateX(90deg); transform-origin:top; background:RGBA(213, 207, 98, .6);}
-        .box-bottom {transform: rotateX(-90deg); transform-origin: bottom; background:RGBA(98, 213, 138, .6);}
-
-        @keyframes rotate-frame {
-            0% {
-                    transform: rotateX(0deg) rotateY(0deg);
-            }
-            10% {
-                    transform: rotateX(0deg) rotateY(180deg);
-            }
-            20% {
-                    transform: rotateX(-180deg) rotateY(180deg);
-            }
-            30% {
-                    transform: rotateX(-360deg) rotateY(180deg);
-            }
-            40% {
-                    transform: rotateX(-360deg) rotateY(360deg);
-            }
-            50% {
-                    transform: rotateX(-180deg) rotateY(360deg);
-            }
-            60% {
-                    transform: rotateX(90deg) rotateY(180deg);
-            }
-            70% {
-                    transform: rotateX(0) rotateY(180deg);
-            }
-            80% {
-                    transform: rotateX(90deg) rotateY(90deg);
-            }
-            90% {
-                    transform: rotateX(90deg) rotateY(0);
-            }
-            100% {
-                    transform: rotateX(0) rotateY(0);
-            }
-        }
-       #box3dWrap {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-left: -2.0rem;
-            margin-top: -1.5rem;
-        }
-    </style>
-  </head>
-  <body>
-    <div class="cbg">
-            <div class="box3d-wrap flex-center" id="box3dWrap">
-                <div class="box3d-inner" style="margin: 0 auto;">
-                    <div class="box3d box-front"></div>
-                    <div class="box3d box-back"></div>
-                    <div class="box3d box-left"></div>
-                    <div class="box3d box-top"></div>
-                    <div class="box3d box-right"></div>
-                    <div class="box3d box-bottom"></div>
-                </div>
-            </div>
-        </div>
-    <div id="app">
-    </div>
-    <!-- built files will be auto injected -->
-    <script type="text/javascript">
-        // ======================================= Transform
-        var currAttr = 'translate';// translate rotate scale skew
-
-        var RANGE_CONFIG = {
-            'translate':{x: [-200, 200, 0], y:[-100, 100, 0], step: 1, bg: '#3C763D'},
-            'scale': { x: [0, 10, 1], y:[0, 10, 1], step:0.1, bg: '#31b0d5'},
-            'rotate': {x:[0, 360, 0], step:1, bg:'#ec971f'},
-            'skew':{ x: [0, 100, 0], y:[0, 100, 0], step:1, bg:'#d9534f'},
-        }
-        var $ranges = $('.range');
-        var $rangeBoxs = $('.range-box');
-        var $box = $('#box1');
-
-        function initRange(attr){
-            var opt = RANGE_CONFIG[attr];
-            $ranges.eq(0).attr({min:opt.x[0], max: opt.x[1], step: opt.step}).val(opt.x[2]).parent().show();
-            if(opt.y){
-                $ranges.eq(1).attr({min:opt.y[0], max: opt.y[1], step: opt.step}).val(opt.y[2]).parent().show();
-            }else{
-                $ranges.eq(1).parent().hide();
-            }
-            $box.css({'background': opt.bg, 'transform':'matrix(1,0,0,1,0,0)'})
-        }
-
-        initRange(currAttr);
-
-        $('.transform-type').on('click', function(){
-            currAttr = $(this).text();
-            $('.transform-type').removeClass('active');
-            $(this).addClass('active');
-            initRange(currAttr);
-        })
-
-        $('.range').on('input',function(){
-            var $this = $(this), type= $this.data('type'), val = $this.val();
-            
-            var idx = 0, regArr, currStyle = $box.css('transform');
-            
-            if(currStyle !== 'none'){
-                regArr = currStyle.split('(')[1].replace(')','').split(',');
-            }else{
-                regArr = [1, 0, 0, 1, 0, 0];
-            }
-            
-            if(currAttr == 'translate'){
-                idx = type === 'x' ? 4 : 5;
-                regArr[idx] = val;
-            }
-            
-            if(currAttr == 'scale'){
-                idx = type === 'x' ? 0 : 3;
-                regArr[idx] = val;
-            }
-            
-            if(currAttr == 'rotate'){
-                var cos = Math.cos(val * Math.PI / 180).toFixed(6);
-                var sin = Math.sin(val * Math.PI / 180).toFixed(6);
-                
-                regArr[0] = cos;
-                regArr[1] = sin;
-                regArr[2] = -sin;
-                regArr[3] = cos;
-            }
-            
-            if(currAttr == 'skew'){
-                var tan = Math.tan(val * Math.PI / 180).toFixed(6);
-                idx = type === 'x' ? 2 : 1;
-                regArr[idx] = tan;
-            }
-            var transformVal = 'matrix('+regArr.join(', ')+')';
-            console.log(val + ' - ' +transformVal);
-            $box.css({transform: transformVal});
-        })
-
-        // ================================== Transition
-        var $box2 = $('#box2'), timmer = null;
-
-        $('.transition-type').on('click', function(){
-            var $this = $(this);
-            var timingType = $this.text();
-            $('.transition-type').removeClass('active');
-            
-            $box2.attr('class','box box2 active '+ timingType);
-            clearTimeout(timmer);
-            timmer = setTimeout(function(){
-                $box2.attr('class','box box2');
-            }, 1500);
-        })
     </script>
     <script type="text/javascript">
         var start_time = (new Date()).getTime();
@@ -504,5 +53,65 @@
             end_time = (new Date()).getTime();
         }
     </script>
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://libs.cdnjs.net/slippry/1.4.0/slippry.min.css">
+    <script type="text/javascript" src="http://libs.cdnjs.net/slippry/1.4.0/slippry.min.js"></script>
+    <script type="text/javascript" src="http://libs.cdnjs.net/scrollReveal.js/3.3.6/scrollreveal.min.js"></script>
+    <style type="text/css">
+      .sy-box.sy-loading {
+        background: none }
+        .sy-box.sy-loading .sy-slides-wrap, .sy-box.sy-loading .sy-pager {
+          visibility: hidden; }
+    </style>
+    <style type="text/css">
+      .cbg{
+          position: fixed;
+          bottom: 0;
+          top: 0;
+          right: 0;
+          left: 0;
+          background-color: rgba(255,255,255,0.5);
+          z-index: 9999;
+      }
+      .sk-rotating-plane {
+        width: 40px;
+        height: 40px;
+        background-color: #18aacf;
+        position: absolute;
+        left: 45%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
+                animation: sk-rotatePlane 1.2s infinite ease-in-out; }
+      @-webkit-keyframes sk-rotatePlane {
+        0% {
+          -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                  transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+        50% {
+          -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                  transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+        100% {
+          -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                  transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+      @keyframes sk-rotatePlane {
+        0% {
+          -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                  transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+        50% {
+          -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                  transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+        100% {
+          -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                  transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+    </style>
+  </head>
+  <body>
+    <div class="cbg">
+      <div class="sk-rotating-plane"></div>
+    </div>
+    <div id="app">
+    </div>
+    
   </body>
 </html>

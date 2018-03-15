@@ -1,10 +1,10 @@
 <template>
-  <div class="signin">
-    <div class="box">
+  <div class="signup">
+    <div class="box bgbox signup-form">
       <div class="logo">
-        <img alt="dengpeng" src="../../assets/images/73068c09df2142dfbcd926b6c4056dc6.png">
+        <img alt="dengpeng" src="../../assets/images/logo2.png">
       </div>
-        <el-form class="in-form" :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
+        <el-form class="in-form " :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
           <el-form-item>
           </el-form-item>
           <el-form-item label="姓名/账号">
@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: 'signin',
+  name: 'signup',
   data () {
     return {
       name: '',
@@ -65,15 +65,9 @@ export default {
       .then(res => {
           console.log(res)
           if (res.data.isSuc) {
-            this.$message({
-              message: res.data.message,
-              type: 'success'
-            })
+            Toast(res.data.message)
           } else {
-            this.$message({
-              message: res.data.message,
-              type: 'error'
-            })
+            Toast(res.data.message)
           }
           
           // location.href = './loginSuc.html'
@@ -83,34 +77,40 @@ export default {
         console.log(err)
       })
     }
+  },
+  mounted() {
+    $('.signup').height($('.box').height() + (20 * (parseInt($('html').css('font-size'))/100)))
   }
 }
 </script>
-
+<style type="text/css">
+  .signup-form .el-form-item {
+    margin-bottom: 0;
+  }
+  .signup-form .el-form-item__label {
+    color: #444
+  }
+  .signup-form  .el-form--label-top .el-form-item__label{
+    padding: 0
+  }
+</style>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.signin{
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  top: 0;
-  background: #efefef
+.signup {
+  padding: 0.2rem;
+  box-sizing: border-box;
+  margin-bottom: 0.2rem;
 }
-.box {
-  width: 6.6rem;
-  position: absolute;
-  left: 50%;
-  top: 0.35rem;
-  margin-left: -3.3rem;
+.signup-form {
+  padding: 0.2rem;
+  box-sizing: border-box;
 }
 .logo{
   text-align: center;
-  margin-bottom: 0.36rem;
+  margin-bottom: 0;
 }
-.logo img{
-  width: 3.63rem;
-  height: 0.9rem;
+.logo img {
+  height: 1.4rem;
 }
 .box h3 {
   font-size: 42px;

@@ -1,20 +1,8 @@
 <template>
-  <footer class="footer" v-show="GET_FOOTER_SHOW">
-    <div class="second-box ">
-      <div class="mail"><span>分享好的资料、项目等给我，不胜感激！</span><a href="mailto:1181050123@qq.com" class="mailto">邮来邮去</a></div>
-    </div>
-    <div class="second-box ">
-      <div class=" link-group flex flex-v  flex-align-center">
-        <span>
-          <span style="margin-right:0.2rem">2017 © DENGPENG'HOUSE 版权所有</span>
-        </span>
-        <span><a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17041201号</a></span>
-        <span>平台支持：<a href="http://www.lawyer-center.com" target="_blank"><img width="28px" style="margin-right: 5px;vertical-align: -9px;" src="https://weixin.lawyer-says.com/images/common/logo.png" alt="律师说">律师说</a></span>
-        <span class="mysite flex flex-pack-around"><a href="https://github.com/ZooTopiaGG" alt="github" target="_blank"><img src="../assets/images/github.png" alt="github"></a> 
-        <a href="https://www.linkedin.com/in/%E9%B9%8F-%E9%82%93-a23169144/" target="_blank"><img src="../assets/images/in.png" alt="领英"></a>
-        <a href="mailto:1181050123@qq.com" target="_blank"><img src="../assets/images/email.png" alt="邮箱"></a>
-        <a href="http://www.jianshu.com/u/b7cc32782554" target="_blank"><img src="../assets/images/jianshu.png" alt="简书"></a>
-        <a href="https://weibo.com/u/5111513792?refer_flag=1001030201_" target="_blank"><img src="../assets/images/weibo.png" alt="微博"></a>
+  <footer :class="[{footers: true}]" v-show="GET_FOOTER_SHOW">
+    <div class="second-box footer-design flex flex-v flex-align-center">
+      <div>
+        <span>CopyRight © 2017 &nbsp;&nbsp;邓鹏博客 &nbsp;&nbsp;Design by DengPeng</span>
       </span>
       </div>
       <div class="f-box">
@@ -39,12 +27,6 @@ export default {
       'GET_FOOTER_SHOW'
     ])
   },
-  // 路由监听
-  // watch: {
-  //   '$route':  (to, from, next) => {
-  //     console.log(to)
-  //   }
-  // },
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
@@ -59,7 +41,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.footer{
+.footers{
   padding-top: 0.35rem;
 }
 .mail {
@@ -97,12 +79,25 @@ export default {
   color: #18aacf;
 }
 .f-box{
-  width: 90%;
-  margin: 0.3rem auto;
-  font-size: 13px;
-  text-align: justify;
+  margin-top: 0.1rem;
+  text-align: center;
+  line-height: 1.6
 }
-.mysite{
-  width: 100%;
+.f-box p{
+  margin: 0
+}
+.mysite a{
+  margin-right: 0.1rem;
+}
+.footer-design{
+  font-size: 12px;
+  background-color: rgba(85, 85, 85,0.7);
+  box-shadow: 0 0 5px rgba(85, 85, 85,0.5);
+  color: #fff;
+  box-sizing: border-box;
+  padding: 0.2rem 0;
+}
+.music{
+  padding-bottom: 1.2rem;
 }
 </style>

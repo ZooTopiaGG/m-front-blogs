@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import vuex from 'vuex'
-import Elementui from 'element-ui'
 import 'mint-ui/lib/style.css'
 import 'mint-ui/lib/font/style.css'
 import { Loadmore, Toast, Indicator } from 'mint-ui'
@@ -16,23 +15,42 @@ window.Indicator = Indicator
 
 // 监听滚动
 import vuescroll from 'vue-scroll'
-
-// console.log(vuescroll)
-
 Vue.use(vuescroll)
 Vue.use(vuex)
-
-// collapse 展开折叠
-import CollapseTransition from 'element-ui/lib/transitions/collapse-transition'
-// import { Form, FormItem, Input, Button } from 'element-ui'
-
 // Element 样式表
 // import 'element-ui/lib/theme-default/base.css' -.路径更改
+// collapse 展开折叠
+import CollapseTransition from 'element-ui/lib/transitions/collapse-transition'
+Vue.component(CollapseTransition.name, CollapseTransition)
 
-import 'element-ui/lib/theme-chalk/index.css'
-import 'element-ui/lib/theme-chalk/base.css'
-Vue.use(Elementui)
-
+import { 
+  Button, 
+  Select,
+  Form,
+  FormItem,
+  Input,
+  Upload,
+  Radio,
+  RadioGroup,
+  Col,
+  Pagination,
+  DatePicker,
+  Loading
+}
+from 'element-ui'
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Input)
+Vue.use(Button)
+Vue.use(Select)
+Vue.use(Upload)
+Vue.use(Radio)
+Vue.use(RadioGroup)
+Vue.use(Col)
+Vue.use(Pagination)
+Vue.component(CollapseTransition.name, CollapseTransition)
+Vue.use(DatePicker)
+Vue.use(Loading.directive);
 import router from './router'
 import store from './store'
 import './assets/css/reset.css'
@@ -47,13 +65,8 @@ window.Coms = Coms
 var config = {
   delay: 0
 }
-
 window.sr = new ScrollReveal(config);
 
-// 正式网
-// window.baseUrl = 'http://pay.lawyer-says.com/api/'
-// 测试
-// window.baseUrl = 'http://pay.lawyer-says.cn/'
 // qs
 window.Qs = require('../node_modules/qs')
 
@@ -66,7 +79,7 @@ axios.defaults.timeout = 5000
 // 配置请求头
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 // 测试网接口地址
-// axios.defaults.baseURL = 'http://localhost:8086/'
+// axios.defaults.baseURL = 'http://localhost:8088/'
 // 正式网接口地址
 axios.defaults.baseURL = 'http://api.55lover.com/'
 
@@ -78,7 +91,6 @@ axios.interceptors.request.use(config => {
 }, err => {
   // Do something with request error
   Indicator.close()
-  Toast('系统繁忙，请稍后重试')
   return Promise.reject(err)
 })
 
@@ -91,7 +103,7 @@ axios.interceptors.response.use(res => {
 }, err => {
   // Do something with response error
   Indicator.close()
-  Toast('系统繁忙，请稍后重试')
+  Toast(err.response.data.message)
   return Promise.reject(err)
 })
 
@@ -108,7 +120,7 @@ router.beforeEach((to, from, next) => {
     store.dispatch('NO_LOGIN', null)
   }
   // console.log(to)
-  if (to.path == '/signin' || to.path == '/signup' || to.name == 'info') {
+  if (to.path == '/signin' || to.path == '/signup') {
     store.commit('HIDE_NAV')
     store.commit('HIDE_FOOTER')
   } else {

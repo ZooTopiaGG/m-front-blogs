@@ -1,8 +1,8 @@
 <template>
   <div class="signin">
-    <div class="box">
+    <div class="box bgbox signin-form">
       <div class="logo">
-        <img alt="dengpeng" src="../../assets/images/73068c09df2142dfbcd926b6c4056dc6.png">
+        <img alt="dengpeng" src="../../assets/images/logo2.png">
       </div>
         <el-form class="in-form" :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
           <el-form-item>
@@ -65,44 +65,42 @@ export default {
           } else {
             this.$router.go(-1)
           }
-          this.$message({
-            message: res.data.message,
-            type: 'success'
-          })
+          Toast(res.data.message)
       })
       .catch(err => {
         console.log(err)
       })
     }
   },
+  mounted() {
+    $('.signin').height($(window).height()- (160 * (parseInt($('html').css('font-size'))/100)))
+  }
 }
 </script>
-
+<style type="text/css">
+  .signin-form .el-form-item {
+    margin-bottom: 0;
+  }
+  .signin-form .el-form-item__label {
+    color: #444
+  }
+</style>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.signin{
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  top: 0;
-  background: #efefef
+.signin {
+  padding: 0.2rem;
+  box-sizing: border-box;
 }
-.box {
-  width:6.6rem;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -3.3rem;
-  margin-top: -5.0rem;
+.signin-form {
+  padding: 0.2rem;
+  box-sizing: border-box;
 }
 .logo{
   text-align: center;
   margin-bottom: 0.36rem;
 }
 .logo img {
-  width: 3.63rem;
-  height: 0.9rem;
+  height: 1.4rem;
 }
 .box h3 {
   font-size: 42px;

@@ -2,31 +2,31 @@
   <div class="nav" v-show='GET_NAV_SHOW' :class="{ isHome: GET_IS_HOME }">
     <div class="menus flex flex-pack-around">
       <div class="logo">
-        <router-link :to="{ name: 'home' }">
-          <span></span>
+        <router-link :to="{ name: 'home' }" class="navbars" style="margin-right: 0.2rem;">
+          <icon name="home" scale="1.65" style="color:#fff; "></icon>
         </router-link>
       </div>
-      <div class="list flex-1" @click.stop="show1 = !show1">
-        <!-- <router-link :to="{ name: 'home' }">
-          <span></span>
-        </router-link> -->
-        <div style="width: 0.52rem; margin-left: 0.6rem;">
-          <span></span>
+      <div class="list flex-1" >
+        <div @click.stop="show1 = !show1" class="navbars" >
+          <icon name="bars" scale="1.5" style="color:#fff;"></icon>
         </div>
         <el-collapse-transition>
           <div v-show="show1" class="list-cell transition-box">
             <ul class="menu">
-              <li :class="{ active: $route.name === 'program' || $route.path.indexOf('articles/p') > -1}">
+              <li :class="{ active: $route.name === 'program' || $route.path.indexOf('articles/p') > -1}" @click="isshow1">
                 <router-link :to="{ name: 'program' }">技术</router-link>
               </li>
-              <li :class="{ active: $route.name === 'articles' || $route.path.indexOf('articles/a') > -1 }">
+              <li :class="{ active: $route.name === 'articles' || $route.path.indexOf('articles/a') > -1 }"  @click="isshow1">
                 <router-link :to="{ name: 'articles' }">文章</router-link>
               </li>
-              <li :class="{ active: $route.path === '/dynamic'}">
+              <li :class="{ active: $route.path === '/dynamic'}"  @click="isshow1">
                 <router-link :to="{ name: 'dynamic' }">动态</router-link>
               </li>
-              <li :class="{ active: $route.path === '/music'}">
+              <li :class="{ active: $route.path === '/music'}"  @click="isshow1">
                 <router-link :to="{ name: 'music' }">音乐</router-link>
+              </li>
+              <li :class="{ active: $route.path === '/info'}"  @click="isshow1">
+                <router-link :to="{ name: 'info' }">关于我</router-link>
               </li>
             </ul>
           </div>
@@ -38,16 +38,15 @@
         <router-link :to="{ name: 'signup' }">注册</router-link>
       </div>
       <div class="sign" v-else>
-        <div class="info flex flex-align-center" @click="show = !show">
-          <img v-if="GET_LOGIN_STATUS.avatar" :src="GET_LOGIN_STATUS.avatar" style="margin-right: 0.1rem;width: 0.6rem;height: 0.6rem;border-radius: 100%;">
-          <img v-else src="../assets/images/signin.png" style="margin-right: 5px">
-          <span>{{ GET_LOGIN_STATUS.name }}</span>
+        <div class="info flex flex-align-center" @click="show = !show" style="margin-top: 0.14rem">
+          <img v-if="GET_LOGIN_STATUS.avatar" :src="GET_LOGIN_STATUS.avatar" style="width: 0.6rem;height: 0.6rem;border-radius: 100%;">
+          <img v-else src="../assets/images/signin.png">
         </div>
         <el-collapse-transition>
           <div v-show="show" class="showit transition-box">
               <ul class="item">
-                <li class="setting flex flex-align-center" @click="toinfo"><i></i>个人资料</li>
-                <li class="signout flex flex-align-center" @click="signout"><i></i>登出</li>
+                <li class="setting flex flex-align-center" @click="toinfo"><icon name="cog" scale="1.4" style="color:#555; "></icon><span style="margin-left:0.2rem">站长信息</span></li>
+                <li class="signout flex flex-align-center" @click="signout"><icon name="sign-out" scale="1.4" style="color:#555; "></icon><span style="margin-left:0.2rem">登出</span></li>
               </ul>
           </div>
         </el-collapse-transition>
@@ -57,9 +56,14 @@
 </template>
 
 <script>
+import 'vue-awesome/icons'
+import Icon from 'vue-awesome/components/Icon'
 import { mapGetters } from 'vuex'
 export default {
   name: 'nav',
+  components: {
+    Icon
+  },
   data() {
     return {
       activeIndex: '1',
@@ -86,11 +90,10 @@ export default {
     },
     isshow1 () {
       this.show1 = false
-      alert(this.show1)
     },
     toinfo () {
       this.show = false;
-      this.$router.push({ name: 'info', params: { userid: this.GET_LOGIN_STATUS.id } })
+      this.$router.push({ name: 'info' })
     }
   },
   mounted () {
@@ -109,9 +112,9 @@ export default {
   top: 0;
   background: rgba(0,0,0,0);
   width: 100%;
-  transition: all 0.45s;
+  transition: all 0.4s;
   z-index: 9;
-  padding-top: 0.25rem;
+  padding-top: 0.2rem;
 }
 .nav.isHome{
   background: #18aacf;
@@ -119,27 +122,14 @@ export default {
   padding-top: 0
 }
 .menus{
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
   margin: 0 auto;
   overflow: auto;
 }
 .logo{
   height: 0.9rem;
   overflow: hidden;
-}
-.logo span, .list span{
-  display: inline-block;
-  width: 26px;
-  height: 26px;
-  margin-top:0.14rem;
-  background: url(../assets/images/home.png) no-repeat;
-  background-size: cover;
-}
-.list span{
-  background: url(../assets/images/list.png) no-repeat;
-  background-size: cover;
-  margin-top: 0.18rem;
 }
 .sign {
   font-size: 16px;
@@ -158,10 +148,10 @@ export default {
   border-bottom-color: red;
   color: #4c4c4c;
   margin-top: 0.2rem; 
-  width: 2.0rem;
+  width: 2.4rem;
   position: absolute;
   top: 0.9rem;
-  right: 0.4rem;
+  right: 0.2rem;
   z-index:99;
   background: #fff;
   text-align: left;
@@ -187,22 +177,6 @@ export default {
   height: 0.24rem;
   margin-right: 0.1rem;
 }
-.setting i {
-  background: url(../assets/images/sz.png) no-repeat;
-  background-size: cover 
-}
-.signout i {
-  background: url(../assets/images/signout.png) no-repeat;
-  background-size: cover 
-}
-.item li.setting:hover i{
-  background: url(../assets/images/sz2.png) no-repeat;
-  background-size: cover 
-}
-.item li.signout:hover i{
-  background: url(../assets/images/signout2.png) no-repeat;
-  background-size: cover 
-}
 .menu {
   font-size: 14px;
   line-height: 0.9rem;
@@ -217,11 +191,6 @@ export default {
   display: block;
   width: 100%;
   height: 100%;
-}
-.menu li:hover a{
-  /*font-size: 18px;
-  font-weight: bold;*/
-  border-bottom: 1px solid #fff;
 }
 .menu li.active{
   background: #13afff;
@@ -247,8 +216,15 @@ export default {
   color: #4c4c4c;
   background: #fff;
   width: 3.2rem;
-  left: 1.6rem;
+  left: 1.3rem;
   margin-top: 0.2rem;
   top: 0.9rem;
+}
+.navbars {
+  display: block; 
+  width: 0.9rem; 
+  height:0.9rem;
+  box-sizing: border-box;
+  padding-top: 0.2rem;
 }
 </style>
