@@ -28,9 +28,10 @@ export default {
       background:[
         'http://wallpaper.55lover.com/image/wallpaper/bg1.jpg',
         'http://wallpaper.55lover.com/image/wallpaper/bg2.jpg',
-        'http://wallpaper.55lover.com/image/wallpaper/bg6.jpg',
         'http://wallpaper.55lover.com/image/wallpaper/bg3.jpg',
+        'http://wallpaper.55lover.com/image/wallpaper/bg7.jpg',
         'http://wallpaper.55lover.com/image/wallpaper/bg4.jpg',
+        'http://wallpaper.55lover.com/image/wallpaper/201803071503.jpg'
       ]
     }
   },

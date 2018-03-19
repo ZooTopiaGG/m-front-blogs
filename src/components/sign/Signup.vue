@@ -23,7 +23,10 @@
             <el-input type='password' v-model="formLabelAlign.password1"></el-input>
           </el-form-item>
           <el-form-item>
-            <p>我有账号了。<router-link :to="{ name: 'signin' }">直接去登录</router-link></p>
+            <div class="flex flex-pack-justify">
+              <p>我有账号了。<router-link :to="{ name: 'signin' }">直接去登录</router-link></p>
+              <p><router-link :to="{ name: 'home' }">返回首页</router-link></p>
+            </div>
           </el-form-item>
           <el-form-item>
           <el-button type="primary" @click="submitForm()">注册</el-button>
@@ -46,21 +49,37 @@ export default {
         password1: '',
         password: '',
         gender: '',
-        email: ''
+        email: '',
+        avatar: [
+          'http://scenery.55lover.com/image/scenery/20180319113550.jpg',
+          'http://scenery.55lover.com/image/scenery/20180319113533.jpg',
+          'http://scenery.55lover.com/image/scenery/20180319113616.jpg',
+          'http://scenery.55lover.com/image/scenery/20180319113602.jpg',
+          'http://scenery.55lover.com/image/scenery/20180319113556.jpg',
+          'http://scenery.55lover.com/image/scenery/20180319113609.jpg',
+          'http://scenery.55lover.com/image/scenery/20180319113630.jpg',
+          'http://scenery.55lover.com/image/scenery/20180319113621.jpg',
+          'http://scenery.55lover.com/image/scenery/20180319113625.jpg',
+          'http://scenery.55lover.com/image/scenery/20180319113635.jpg'
+        ]
       }
     }
   },
   methods: {
     submitForm () {
-      var that = this;
+      let
+        that = this,
+        round = Math.floor(Math.random() * that.formLabelAlign.avatar.length),
+        avatar = that.formLabelAlign.avatar[round],
       // AJAX提交JSON:
-      var para = {
+        para = {
           name: that.formLabelAlign.name,
           password: that.formLabelAlign.password,
           password1: that.formLabelAlign.password1,
           gender: that.formLabelAlign.gender,
           email: that.formLabelAlign.email,
-      }
+          avatar: avatar
+      };
       axios.post('/api/signup/', Qs.stringify(para))
       .then(res => {
           console.log(res)
@@ -79,7 +98,16 @@ export default {
     }
   },
   mounted() {
-    $('.signup').height($('.box').height() + (20 * (parseInt($('html').css('font-size'))/100)))
+    // $('.signup').height($('.box').height() + (20 * (parseInt($('html').css('font-size'))/100)))
+    $('.main').css('paddingTop','0.3rem')
+    let 
+      wHeight = $(window).height()- (120 * (parseInt($('html').css('font-size'))/100)),
+      bHeight = $('.box').height() + (60 * (parseInt($('html').css('font-size'))/100));
+    if (wHeight < bHeight) {
+      $('.signup').height(bHeight)
+    } else {
+       $('.signup').height(wHeight)
+    }
   }
 }
 </script>
@@ -97,9 +125,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .signup {
-  padding: 0.2rem;
+  padding: 0.3rem;
   box-sizing: border-box;
-  margin-bottom: 0.2rem;
 }
 .signup-form {
   padding: 0.2rem;

@@ -117,7 +117,7 @@ export default {
   padding-top: 0.2rem;
 }
 .nav.isHome{
-  background: #18aacf;
+  background: #3387A4;
   -webkit-transition: all .4s;
   padding-top: 0
 }
@@ -165,7 +165,7 @@ export default {
   padding-left: 0.3rem;
 }
 .item li:hover, .menu li:hover {
-  background: #18aacf;
+  background: #3387A4;
   color: #fff;
   /*height: 40px;*/
 }
@@ -193,7 +193,10 @@ export default {
   height: 100%;
 }
 .menu li.active{
-  background: #13afff;
+  background: #3387A4;
+}
+.menu li.active a {
+  color: #fff
 }
 .sign, .sign a {
   color: #fff;

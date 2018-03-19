@@ -14,7 +14,10 @@
             <el-input type='password' v-model="formLabelAlign.password"></el-input>
           </el-form-item>
           <el-form-item>
-            <p>没有账号？<router-link :to="{ name: 'signup' }">去注册</router-link></p>
+            <div class="flex flex-pack-justify">
+              <p>没有账号？<router-link :to="{ name: 'signup' }">去注册</router-link></p>
+              <p><router-link :to="{ name: 'home' }">返回首页</router-link></p>
+            </div>
           </el-form-item>
           <el-form-item>
           <el-button type="primary" @click="submitForm()">立即登录</el-button>
@@ -73,7 +76,16 @@ export default {
     }
   },
   mounted() {
-    $('.signin').height($(window).height()- (160 * (parseInt($('html').css('font-size'))/100)))
+    $('.main').css('paddingTop','0.3rem')
+    let 
+      wHeight = $(window).height()- (120 * (parseInt($('html').css('font-size'))/100)),
+      bHeight = $('.box').height() + (60 * (parseInt($('html').css('font-size'))/100));
+    console.log(`${wHeight} -- ${bHeight}`)
+    if (bHeight > wHeight) {
+      $('.signin').height(bHeight)
+    } else {
+       $('.signin').height(wHeight)
+    }
   }
 }
 </script>
@@ -88,7 +100,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .signin {
-  padding: 0.2rem;
+  padding: 0.3rem;
   box-sizing: border-box;
 }
 .signin-form {

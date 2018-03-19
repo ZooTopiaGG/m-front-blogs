@@ -47,7 +47,7 @@
           邓鹏
         </div>
         <div class="desc">
-          只会写代码的全栈
+          只会写代码的<span style="font-weight: bold">狭义</span>全栈
         </div>
         <div class="statistics flex flex-align-center flex-pack-justify">
           <div class="flex flex-v flex-align-center">
