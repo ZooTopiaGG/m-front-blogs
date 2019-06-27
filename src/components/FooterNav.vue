@@ -3,7 +3,6 @@
     <div class="second-box footer-design flex flex-v flex-align-center">
       <div>
         <span>CopyRight © 2017 &nbsp;&nbsp;邓鹏博客 &nbsp;&nbsp;Design by DengPeng</span>
-      </span>
       </div>
       <div class="f-box">
         <p>该网站初创于2017年11月17日，属于个人独立开发。如有雷同，不是巧合，欢迎各位大神，给予批评和建议。谢谢大家！</p>
@@ -16,24 +15,21 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  name: 'footer',
+  name: 'footernav',
   data() {
     return {
       activeIndex: '1'
-    };
+    }
   },
   computed: {
-    ...mapGetters ([
-      'GET_FOOTER_SHOW'
-    ])
+    ...mapGetters(['GET_FOOTER_SHOW'])
   },
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
-
+      console.log(key, keyPath)
+    }
   },
-  mounted () {
+  mounted() {
     sr.reveal(document.querySelectorAll('.second-box'))
   }
 }
@@ -41,7 +37,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.footers{
+.footers {
   padding-top: 0.35rem;
 }
 .mail {
@@ -53,7 +49,7 @@ export default {
   font-size: 16px;
   padding: 0.1rem 0;
 }
-.mail  a {
+.mail a {
   border: 1px solid #fff;
   transition: all 0.45s;
   color: #fff;
@@ -64,11 +60,11 @@ export default {
   height: 0.6rem;
   margin: 0.2rem auto 0;
 }
-.mail a:hover{
+.mail a:hover {
   background: #fff;
   color: #18aacf;
 }
-.link-group span{
+.link-group span {
   margin-bottom: 0.2rem;
   font-size: 14px;
 }
@@ -78,26 +74,26 @@ export default {
 .link-group a:hover {
   color: #18aacf;
 }
-.f-box{
+.f-box {
   margin-top: 0.1rem;
   text-align: center;
-  line-height: 1.6
+  line-height: 1.6;
 }
-.f-box p{
-  margin: 0
+.f-box p {
+  margin: 0;
 }
-.mysite a{
+.mysite a {
   margin-right: 0.1rem;
 }
-.footer-design{
+.footer-design {
   font-size: 12px;
-  background-color: rgba(85, 85, 85,0.7);
-  box-shadow: 0 0 5px rgba(85, 85, 85,0.5);
+  background-color: rgba(85, 85, 85, 0.7);
+  box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
   color: #fff;
   box-sizing: border-box;
   padding: 0.2rem 0;
 }
-.music{
+.music {
   padding-bottom: 1.2rem;
 }
 </style>

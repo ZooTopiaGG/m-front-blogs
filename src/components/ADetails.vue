@@ -22,10 +22,10 @@
 </template>
 
 <script>
-
+import marked from 'marked'
 export default {
   name: 'adetails',
-  data () {
+  data() {
     return {
       title: '',
       content: '',
@@ -36,47 +36,47 @@ export default {
     }
   },
   methods: {
-    getArticle () {
+    getArticle() {
       Indicator.open()
-      axios.get('/api/getArticle/'+ this.$route.params.articleid)
-      .then(res => {
-        this.title = res.data.result.title
-        $('title').html(`${this.title}_邓鹏博客`)
-        if (res.data.result.type == 0) {
-          this.type = '原创'
-        } else {
-          this.type = '转载'
-        }
-        this.viewcount = res.data.result.viewcount
-        this.createtime = Coms.getCommonTime(res.data.result.createAt)
-        this.content = res.data.result.content
-        return 'ok'
-      })
-      .then(res => {
-        // 控制图片
-        this.loadImg = true
-      })
-      .catch(err => {})
+      axios
+        .get('/api/getArticle/' + this.$route.params.articleid)
+        .then(res => {
+          this.title = res.data.result.title
+          $('title').html(`${this.title}_邓鹏博客`)
+          if (res.data.result.type == 0) {
+            this.type = '原创'
+          } else {
+            this.type = '转载'
+          }
+          this.viewcount = res.data.result.viewcount
+          this.createtime = Coms.getCommonTime(res.data.result.createAt)
+          this.content = marked(res.data.result.content)
+          return 'ok'
+        })
+        .then(res => {
+          // 控制图片
+          this.loadImg = true
+        })
+        .catch(err => {})
     }
   },
-  mounted () {
+  mounted() {
     this.getArticle()
   }
 }
 </script>
 <style type="text/css">
-  
 </style>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.adetails{
+.adetails {
   margin: 0 auto;
 }
-.details-title{
+.details-title {
   padding: 0.2rem;
   font-size: 18px;
 }
-.desc{
+.desc {
   font-size: 16px;
   padding: 0 0.2rem;
 }
@@ -87,9 +87,9 @@ export default {
   margin-right: 0.2rem;
 }
 .author a {
-  color: #18aacf
+  color: #18aacf;
 }
-.author a:hover{
+.author a:hover {
   text-decoration: underline;
 }
 .type {
@@ -99,8 +99,8 @@ export default {
   font-size: 12px;
   margin-top: 0.1rem;
 }
-.time{
-  color: #808080
+.time {
+  color: #808080;
 }
 .content {
   margin-top: 0.4rem;
@@ -110,7 +110,7 @@ export default {
   font-size: 16px;
   line-height: 1.8;
 }
-.loadImg img{
+.loadImg img {
   width: 100%;
   max-width: 100%;
 }

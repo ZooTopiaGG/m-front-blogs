@@ -56,13 +56,13 @@
           </div>
           <div class="line"></div>
           <div class="flex flex-v flex-align-center">
-            <span class="all-num">{{GET_STAT.user_num}}</span>
-            <p>总用户数</p>
+            <span class="all-num">{{GET_STAT.today_pv}}</span>
+            <p>今日访问数</p>
           </div>
           <div class="line"></div>
           <div class="flex flex-v flex-align-center">
             <span class="all-num">{{GET_STAT.visitor_num}}</span>
-            <p>总浏览数</p>
+            <p>总访问数</p>
           </div>
         </div>
       </div>

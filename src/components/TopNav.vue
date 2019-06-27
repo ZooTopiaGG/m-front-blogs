@@ -6,8 +6,8 @@
           <icon name="home" scale="1.65" style="color:#fff; "></icon>
         </router-link>
       </div>
-      <div class="list flex-1" >
-        <div @click.stop="show1 = !show1" class="navbars" >
+      <div class="list flex-1">
+        <div @click.stop="show1 = !show1" class="navbars">
           <icon name="bars" scale="1.5" style="color:#fff;"></icon>
         </div>
         <el-collapse-transition>
@@ -16,16 +16,16 @@
               <li :class="{ active: $route.name === 'program' || $route.path.indexOf('articles/p') > -1}" @click="isshow1">
                 <router-link :to="{ name: 'program' }">技术</router-link>
               </li>
-              <li :class="{ active: $route.name === 'articles' || $route.path.indexOf('articles/a') > -1 }"  @click="isshow1">
+              <li :class="{ active: $route.name === 'articles' || $route.path.indexOf('articles/a') > -1 }" @click="isshow1">
                 <router-link :to="{ name: 'articles' }">文章</router-link>
               </li>
-              <li :class="{ active: $route.path === '/dynamic'}"  @click="isshow1">
+              <li :class="{ active: $route.path === '/dynamic'}" @click="isshow1">
                 <router-link :to="{ name: 'dynamic' }">动态</router-link>
               </li>
-              <li :class="{ active: $route.path === '/music'}"  @click="isshow1">
+              <!-- <li :class="{ active: $route.path === '/music'}" @click="isshow1">
                 <router-link :to="{ name: 'music' }">音乐</router-link>
-              </li>
-              <li :class="{ active: $route.path === '/info'}"  @click="isshow1">
+              </li> -->
+              <li :class="{ active: $route.path === '/info'}" @click="isshow1">
                 <router-link :to="{ name: 'info' }">关于我</router-link>
               </li>
             </ul>
@@ -44,10 +44,14 @@
         </div>
         <el-collapse-transition>
           <div v-show="show" class="showit transition-box">
-              <ul class="item">
-                <li class="setting flex flex-align-center" @click="toinfo"><icon name="cog" scale="1.4" style="color:#555; "></icon><span style="margin-left:0.2rem">站长信息</span></li>
-                <li class="signout flex flex-align-center" @click="signout"><icon name="sign-out" scale="1.4" style="color:#555; "></icon><span style="margin-left:0.2rem">登出</span></li>
-              </ul>
+            <ul class="item">
+              <li class="setting flex flex-align-center" @click="toinfo">
+                <icon name="cog" scale="1.4" style="color:#555; "></icon><span style="margin-left:0.2rem">站长信息</span>
+              </li>
+              <li class="signout flex flex-align-center" @click="signout">
+                <icon name="sign-out" scale="1.4" style="color:#555; "></icon><span style="margin-left:0.2rem">登出</span>
+              </li>
+            </ul>
           </div>
         </el-collapse-transition>
       </div>
@@ -60,7 +64,7 @@ import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 import { mapGetters } from 'vuex'
 export default {
-  name: 'nav',
+  name: 'topnav',
   components: {
     Icon
   },
@@ -70,33 +74,29 @@ export default {
       show: false,
       show1: false,
       res: {}
-    };
+    }
   },
   computed: {
-    ...mapGetters ([
-      'GET_NAV_SHOW',
-      'GET_IS_HOME',
-      'GET_LOGIN_STATUS'
-    ])
+    ...mapGetters(['GET_NAV_SHOW', 'GET_IS_HOME', 'GET_LOGIN_STATUS'])
   },
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+      console.log(key, keyPath)
     },
-    signout () {
-      window.localStorage.clear();
-      this.show = false;
+    signout() {
+      window.localStorage.clear()
+      this.show = false
       this.$store.dispatch('NO_LOGIN', null)
     },
-    isshow1 () {
+    isshow1() {
       this.show1 = false
     },
-    toinfo () {
-      this.show = false;
+    toinfo() {
+      this.show = false
       this.$router.push({ name: 'info' })
     }
   },
-  mounted () {
+  mounted() {
     // document.body.on('click', function () {
     //   this.show1 = false
     // })
@@ -106,53 +106,53 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.nav{
+.nav {
   height: 0.9rem;
   position: fixed;
   top: 0;
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   width: 100%;
   transition: all 0.4s;
   z-index: 9;
   padding-top: 0.2rem;
 }
-.nav.isHome{
-  background: #3387A4;
-  -webkit-transition: all .4s;
-  padding-top: 0
+.nav.isHome {
+  background: #3387a4;
+  -webkit-transition: all 0.4s;
+  padding-top: 0;
 }
-.menus{
+.menus {
   padding-left: 0.2rem;
   padding-right: 0.2rem;
   margin: 0 auto;
   overflow: auto;
 }
-.logo{
+.logo {
   height: 0.9rem;
   overflow: hidden;
 }
 .sign {
   font-size: 16px;
   line-height: 0.9rem;
-  height: 0.90rem;
+  height: 0.9rem;
 }
 .sign {
-  min-width: 1.0rem;
+  min-width: 1rem;
   text-align: center;
   cursor: pointer;
 }
-.showit{
-  box-shadow: 1px 1px 10px 1px #CCC;
-  -webkit-box-shadow: 1px 1px 10px 1px #CCC;
-  -moz-box-shadow: 1px 1px 10px 1px #CCC;
+.showit {
+  box-shadow: 1px 1px 10px 1px #ccc;
+  -webkit-box-shadow: 1px 1px 10px 1px #ccc;
+  -moz-box-shadow: 1px 1px 10px 1px #ccc;
   border-bottom-color: red;
   color: #4c4c4c;
-  margin-top: 0.2rem; 
+  margin-top: 0.2rem;
   width: 2.4rem;
   position: absolute;
   top: 0.9rem;
   right: 0.2rem;
-  z-index:99;
+  z-index: 99;
   background: #fff;
   text-align: left;
   font-size: 14px;
@@ -164,8 +164,9 @@ export default {
   -moz-transition: all 0.3s;
   padding-left: 0.3rem;
 }
-.item li:hover, .menu li:hover {
-  background: #3387A4;
+.item li:hover,
+.menu li:hover {
+  background: #3387a4;
   color: #fff;
   /*height: 40px;*/
 }
@@ -192,29 +193,30 @@ export default {
   width: 100%;
   height: 100%;
 }
-.menu li.active{
-  background: #3387A4;
+.menu li.active {
+  background: #3387a4;
 }
 .menu li.active a {
-  color: #fff
+  color: #fff;
 }
-.sign, .sign a {
+.sign,
+.sign a {
   color: #fff;
 }
 .sign {
-  margin-left: 0.5rem; 
+  margin-left: 0.5rem;
 }
-.signin{
+.signin {
   float: right;
 }
-.signup{
+.signup {
   float: right;
 }
 .list-cell {
   position: absolute;
-  box-shadow: 1px 1px 10px 1px #CCC;
-  -webkit-box-shadow: 1px 1px 10px 1px #CCC;
-  -moz-box-shadow: 1px 1px 10px 1px #CCC;
+  box-shadow: 1px 1px 10px 1px #ccc;
+  -webkit-box-shadow: 1px 1px 10px 1px #ccc;
+  -moz-box-shadow: 1px 1px 10px 1px #ccc;
   border-bottom-color: red;
   color: #4c4c4c;
   background: #fff;
@@ -224,9 +226,9 @@ export default {
   top: 0.9rem;
 }
 .navbars {
-  display: block; 
-  width: 0.9rem; 
-  height:0.9rem;
+  display: block;
+  width: 0.9rem;
+  height: 0.9rem;
   box-sizing: border-box;
   padding-top: 0.2rem;
 }
