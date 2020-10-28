@@ -9,7 +9,7 @@
       <el-form-item label="站长头像" prop="imageUrl" v-loading.body="loadingAvatarUpload" required>
         <el-upload
           class="avatars-uploader"
-          action="http://api.55lover.com/api/upload"
+          action="https://api.55lover.com/api/upload"
           :show-file-list="false"
           :disabled="true"
           :on-success="handleAvatarSuccess"

@@ -49,7 +49,7 @@ export default {
       totalcount: 0,
       pagesize: 10000,
       page: 1,
-      logo: 'this.src="http://file.55lover.com/uploads/aff0d0293f71.jpg"' 
+      logo: 'this.src="http://image.55lover.com/image/error/no-prev-eefefb160de84ae92123de3ece7be82f.png"' 
     }
   },
   methods: {
@@ -135,9 +135,6 @@ export default {
   border-bottom: 1px solid #eee;  
 }
 .article-list:hover{
-  -webkit-box-shadow: 1px 1px 10px 2px #CCC;
-  -moz-box-shadow: 1px 1px 10px 2px #CCC;
-  -webkit-transition: all .4s;
   border-color: transparent;
 }
 .article-list:last-child{

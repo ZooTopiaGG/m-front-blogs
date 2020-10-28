@@ -104,8 +104,8 @@ export default {
       pagesize: 6,
       // 页值
       page: 1,
-      // logo: 'this.src="' + require('http://file.55lover.com/uploads/aff0d0293f71.jpg') + '"' ,
-      logo: 'this.src="http://file.55lover.com/uploads/aff0d0293f71.jpg"',
+      // logo: 'this.src="' + require('http://image.55lover.com/image/error/no-prev-eefefb160de84ae92123de3ece7be82f.png') + '"' ,
+      logo: 'this.src="http://image.55lover.com/image/error/no-prev-eefefb160de84ae92123de3ece7be82f.png"',
       ruleForm: {
         name: '',
         website: '',
