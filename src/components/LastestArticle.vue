@@ -16,7 +16,7 @@
               <router-link :to="{ name: 'adetails', params: { articleid: item.id, type: 'p' } }">{{ item.title }}</router-link>
             </div>
             <div class="author-info flex flex-align-center flex-pack-justify">
-              <!-- <span class="author"><router-link :to="{ name : 'home' }">邓鹏</router-link></span> /  -->
+              <!-- <span class="author"><router-link :to="{ name : 'home' }">FeRookie</router-link></span> /  -->
               <span class="column-name" v-if="item.columntype==0"><router-link :to="{ name : 'articles' }">文章类</router-link></span>
               <span class="column-name" v-else><router-link :to="{ name : 'program' }">技术类</router-link></span>
               <!-- <span class="article-type">{{ item.type }}</span> /  -->

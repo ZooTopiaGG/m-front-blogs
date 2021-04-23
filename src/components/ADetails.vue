@@ -6,7 +6,7 @@
       <div class="desc-info">
         <div class="author">
           <span>作者：</span>
-          <router-link :to="{ name: 'home' }">邓鹏</router-link>
+          <router-link :to="{ name: 'home' }">FeRookie</router-link>
           <span class="type">类型：</span>
           <span>{{ type }}</span>
         </div>
@@ -42,7 +42,7 @@ export default {
         .get('/api/getArticle/' + this.$route.params.articleid)
         .then(res => {
           this.title = res.data.result.title
-          $('title').html(`${this.title}_邓鹏博客`)
+          $('title').html(`${this.title}_FeRookie博客`)
           if (res.data.result.type == 0) {
             this.type = '原创'
           } else {

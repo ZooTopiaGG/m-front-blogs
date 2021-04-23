@@ -14,7 +14,7 @@
         />
         <div class="info flex-1">
           <div class="user">
-            <span class="name">邓鹏</span> <span class="from">QQ音乐用户</span>
+            <span class="name">FeRookie</span> <span class="from">QQ音乐用户</span>
           </div>
           <div class="intro">
             <span>个人介绍：</span> <span>因为刚好遇见你，留下十年的期许</span>
@@ -391,7 +391,7 @@ export default {
     }
   },
   mounted() {
-    $("title").html("聆听他的声音_音乐专栏_邓鹏博客");
+    $("title").html("聆听他的声音_音乐专栏_FeRookie博客");
     this.getQQMusic();
     console.log(this.GET_PLAY_STATUS);
   },

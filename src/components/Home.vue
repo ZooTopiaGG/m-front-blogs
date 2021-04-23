@@ -70,7 +70,7 @@ export default {
     }
   },
   mounted() {
-    $("title").html("首页_邓鹏博客");
+    $("title").html("首页_FeRookie博客");
     $(".main").css("paddingTop", "1.15rem");
     // console.log(sr)
     var demo1 = $("#slider").slippry({

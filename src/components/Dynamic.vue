@@ -13,7 +13,7 @@
           <div class="con">
             <div class="con-first">
               <div class="content">
-                <router-link :to="{ name: 'home' }" style="color:#409EFF">邓鹏。</router-link> &nbsp;&nbsp;{{ item.content }}
+                <router-link :to="{ name: 'home' }" style="color:#409EFF">FeRookie。</router-link> &nbsp;&nbsp;{{ item.content }}
               </div>
               <div class="time"><span>发布时间：</span><span>{{ item.createAt | time }}</span></div>
             </div>
@@ -75,7 +75,7 @@ export default {
       userid: '',
       username: '',
       touserid: 'd17692be-eca7-41ef-87df-aef4313e2b02', // m如果没有设置，则默认管理员
-      tousername: '邓鹏' // 如果没有设置，则默认管理员
+      tousername: 'FeRookie' // 如果没有设置，则默认管理员
     }
   },
   computed: {
@@ -136,7 +136,7 @@ export default {
         userid: _user.id, // 登录用户
         username: _user.name, // 登录用户
         touserid: this.touserid, // 默认管理员 'd17692be-eca7-41ef-87df-aef4313e2b02',
-        tousername: this.tousername, // 默认管理员 '邓鹏',
+        tousername: this.tousername, // 默认管理员 'FeRookie',
         isreply: this.isreply,
         comment: comment
       }
@@ -151,7 +151,7 @@ export default {
     }
   },
   mounted () {
-    $('title').html('他又在说什么_动态专栏_邓鹏博客')
+    $('title').html('他又在说什么_动态专栏_FeRookie博客')
     this.getDynamicList()
   }
 }

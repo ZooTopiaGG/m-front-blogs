@@ -2,7 +2,7 @@
   <footer :class="[{footers: true}]" v-show="GET_FOOTER_SHOW">
     <div class="second-box footer-design flex flex-v flex-align-center">
       <div>
-        <span>CopyRight © 2017 &nbsp;&nbsp;邓鹏博客 &nbsp;&nbsp;Design by DengPeng</span>
+        <span>CopyRight © 2017 &nbsp;&nbsp;FeRookie博客 &nbsp;&nbsp;Design by DengPeng</span>
       </div>
       <div class="f-box">
         <p>该网站初创于2017年11月17日，属于个人独立开发。如有雷同，不是巧合，欢迎各位大神，给予批评和建议。谢谢大家！</p>

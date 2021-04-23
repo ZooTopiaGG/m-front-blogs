@@ -12,7 +12,7 @@
             <router-link :to="{ name: 'adetails', params: { articleid: item.id, type: 'p' } }">{{ item.title }}</router-link>
           </div>
           <div class="author-info flex flex-align-center flex-pack-justify">
-            <!-- <span class="author"><router-link :to="{ name : 'home' }">邓鹏</router-link></span> /  -->
+            <!-- <span class="author"><router-link :to="{ name : 'home' }">FeRookie</router-link></span> /  -->
             <span class="column-name"><router-link :to="{ name : 'articles' }">技术集</router-link></span>
             <!-- <span class="article-type">{{ item.type }}</span> /  -->
             <div class="flex flex-align-center">
@@ -106,7 +106,7 @@ export default {
     }
   },
   mounted () {
-    $('title').html('优雅的学习态度_技术专栏_邓鹏博客')
+    $('title').html('优雅的学习态度_技术专栏_FeRookie博客')
     this.getArticle()
   }
 }
