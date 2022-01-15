@@ -12,7 +12,7 @@
   "dependencies": {
     "axios": "^0.17.0",
     "element-ui": "^2.0.3",
-    "marked": "^0.6.2",
+    "marked": "^4.0.10",
     "mint-ui": "^2.2.12",
     "qs": "^6.5.1",
     "vue": "^2.5.2",
